@@ -1,0 +1,28 @@
+/* Global Styles */
+:root {
+    --dark-gray: #333;
+    --mid-gray: #999;
+    --light-gray: #eee;
+    /* Svelte */
+    --sv-primary: #f44336;
+    --sv-primary-70: #f44336b3;
+    /* PyTorch */
+    --pt-primary: #DE3412;
+    color: var(--dark-gray);
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    color: var(--dark-gray);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--sv-primary);
+    text-decoration: underline;
+}
