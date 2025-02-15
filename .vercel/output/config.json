@@ -1,0 +1,121 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/api-result",
+			"dest": "/api-result/"
+		},
+		{
+			"src": "/api-result/",
+			"status": 308,
+			"headers": {
+				"Location": "/api-result"
+			}
+		},
+		{
+			"src": "/elements",
+			"dest": "/elements/"
+		},
+		{
+			"src": "/elements/",
+			"status": 308,
+			"headers": {
+				"Location": "/elements"
+			}
+		},
+		{
+			"src": "/img-post",
+			"dest": "/img-post/"
+		},
+		{
+			"src": "/img-post/",
+			"status": 308,
+			"headers": {
+				"Location": "/img-post"
+			}
+		},
+		{
+			"src": "/img-post/result",
+			"dest": "/img-post/result/"
+		},
+		{
+			"src": "/img-post/result/",
+			"status": 308,
+			"headers": {
+				"Location": "/img-post/result"
+			}
+		},
+		{
+			"src": "/test-log",
+			"dest": "/test-log/"
+		},
+		{
+			"src": "/test-log/",
+			"status": 308,
+			"headers": {
+				"Location": "/test-log"
+			}
+		},
+		{
+			"src": "/text-post",
+			"dest": "/text-post/"
+		},
+		{
+			"src": "/text-post/",
+			"status": 308,
+			"headers": {
+				"Location": "/text-post"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "/.*",
+			"dest": "/fn"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"api-result.html": {
+			"path": "api-result"
+		},
+		"elements.html": {
+			"path": "elements"
+		},
+		"img-post.html": {
+			"path": "img-post"
+		},
+		"img-post/result.html": {
+			"path": "img-post/result"
+		},
+		"test-log.html": {
+			"path": "test-log"
+		},
+		"text-post.html": {
+			"path": "text-post"
+		}
+	},
+	"images": {
+		"sizes": [
+			224,
+			640,
+			1200
+		],
+		"domains": [
+			"example-app.vercel.app"
+		],
+		"formats": [
+			"image/avif",
+			"image/webp"
+		]
+	}
+}

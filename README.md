@@ -1,4 +1,11 @@
-# WebApp for ML
+# Serve ML models
 
-- FrontEnd: SvelteKit (+Vercel)
-- BackEnd: FastAPI (+Render)
+## FrontEnd
+
+- SvelteKit: [src/routes](/src/routes/)
+- Vercel
+
+## BackEnd
+
+- FastAPI: [src/lib/server](/src/lib/server/)
+- Render

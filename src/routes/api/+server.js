@@ -11,6 +11,3 @@ export function GET() {
     headers: { "Content-Type": "application/json" },
   });
 }
-
-// To build static
-export const prerender = true;

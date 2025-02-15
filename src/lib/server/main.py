@@ -2,10 +2,7 @@ from fastapi import FastAPI, File, UploadFile, Request
 from fastapi.responses import Response
 from fastapi.middleware.cors import CORSMiddleware
 
-ALLOWED_ORIGINS = [
-    "http://localhost:5173", # SvelteKit default localhost
-    "http://localhost:3000", # Build static and Serve on localhost
-]
+ALLOWED_ORIGINS = ["*"]
 
 app = FastAPI()
 app.add_middleware(
