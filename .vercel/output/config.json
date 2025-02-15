@@ -2,69 +2,80 @@
 	"version": 3,
 	"routes": [
 		{
-			"src": "/api-result",
-			"dest": "/api-result/"
+			"src": "/mobilenet",
+			"dest": "/mobilenet/"
 		},
 		{
-			"src": "/api-result/",
+			"src": "/mobilenet/",
 			"status": 308,
 			"headers": {
-				"Location": "/api-result"
+				"Location": "/mobilenet"
 			}
 		},
 		{
-			"src": "/elements",
-			"dest": "/elements/"
+			"src": "/test/api-result",
+			"dest": "/test/api-result/"
 		},
 		{
-			"src": "/elements/",
+			"src": "/test/api-result/",
 			"status": 308,
 			"headers": {
-				"Location": "/elements"
+				"Location": "/test/api-result"
 			}
 		},
 		{
-			"src": "/img-post",
-			"dest": "/img-post/"
+			"src": "/test/elements",
+			"dest": "/test/elements/"
 		},
 		{
-			"src": "/img-post/",
+			"src": "/test/elements/",
 			"status": 308,
 			"headers": {
-				"Location": "/img-post"
+				"Location": "/test/elements"
 			}
 		},
 		{
-			"src": "/img-post/result",
-			"dest": "/img-post/result/"
+			"src": "/test/img-post",
+			"dest": "/test/img-post/"
 		},
 		{
-			"src": "/img-post/result/",
+			"src": "/test/img-post/",
 			"status": 308,
 			"headers": {
-				"Location": "/img-post/result"
+				"Location": "/test/img-post"
 			}
 		},
 		{
-			"src": "/test-log",
-			"dest": "/test-log/"
+			"src": "/test/img-post/result",
+			"dest": "/test/img-post/result/"
 		},
 		{
-			"src": "/test-log/",
+			"src": "/test/img-post/result/",
 			"status": 308,
 			"headers": {
-				"Location": "/test-log"
+				"Location": "/test/img-post/result"
 			}
 		},
 		{
-			"src": "/text-post",
-			"dest": "/text-post/"
+			"src": "/test/log",
+			"dest": "/test/log/"
 		},
 		{
-			"src": "/text-post/",
+			"src": "/test/log/",
 			"status": 308,
 			"headers": {
-				"Location": "/text-post"
+				"Location": "/test/log"
+			}
+		},
+		{
+			"src": "/test/text-post",
+			"dest": "/test/text-post/"
+		},
+		{
+			"src": "/test/text-post/",
+			"status": 308,
+			"headers": {
+				"Location": "/test/text-post"
 			}
 		},
 		{
@@ -85,23 +96,26 @@
 		"index.html": {
 			"path": ""
 		},
-		"api-result.html": {
-			"path": "api-result"
+		"mobilenet.html": {
+			"path": "mobilenet"
 		},
-		"elements.html": {
-			"path": "elements"
+		"test/api-result.html": {
+			"path": "test/api-result"
 		},
-		"img-post.html": {
-			"path": "img-post"
+		"test/elements.html": {
+			"path": "test/elements"
 		},
-		"img-post/result.html": {
-			"path": "img-post/result"
+		"test/img-post.html": {
+			"path": "test/img-post"
 		},
-		"test-log.html": {
-			"path": "test-log"
+		"test/img-post/result.html": {
+			"path": "test/img-post/result"
 		},
-		"text-post.html": {
-			"path": "text-post"
+		"test/log.html": {
+			"path": "test/log"
+		},
+		"test/text-post.html": {
+			"path": "test/text-post"
 		}
 	},
 	"images": {

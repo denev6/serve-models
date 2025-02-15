@@ -10,35 +10,35 @@ return {
 	assets: new Set(["favicon.png","global.css"]),
 	mimeTypes: {".png":"image/png",".css":"text/css"},
 	_: {
-		client: {start:"_app/immutable/entry/start.t49mYYko.js",app:"_app/immutable/entry/app.AnmrJzNG.js",imports:["_app/immutable/entry/start.t49mYYko.js","_app/immutable/chunks/DDEkrzKO.js","_app/immutable/chunks/BmosVzqU.js","_app/immutable/chunks/BWH4WX17.js","_app/immutable/entry/app.AnmrJzNG.js","_app/immutable/chunks/BmosVzqU.js","_app/immutable/chunks/BIkekS2W.js","_app/immutable/chunks/vMUy-l4-.js","_app/immutable/chunks/B-pjV1An.js","_app/immutable/chunks/BYI5g8cN.js","_app/immutable/chunks/B0byTeBw.js","_app/immutable/chunks/C6th5xYc.js","_app/immutable/chunks/BWH4WX17.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.CdjJqyQF.js",app:"_app/immutable/entry/app.CeYCKcpM.js",imports:["_app/immutable/entry/start.CdjJqyQF.js","_app/immutable/chunks/BXTzUivX.js","_app/immutable/chunks/q-7iqr8h.js","_app/immutable/chunks/mM23yhBs.js","_app/immutable/entry/app.CeYCKcpM.js","_app/immutable/chunks/q-7iqr8h.js","_app/immutable/chunks/D6ngW7ju.js","_app/immutable/chunks/BaJEzMtw.js","_app/immutable/chunks/BwwZvEgN.js","_app/immutable/chunks/XhzqXTBR.js","_app/immutable/chunks/l2ZCfdtI.js","_app/immutable/chunks/KC7yPoGF.js","_app/immutable/chunks/mM23yhBs.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('../output/server/nodes/0.js')),
 			__memo(() => import('../output/server/nodes/1.js'))
 		],
 		routes: [
 			{
-				id: "/api",
-				pattern: /^\/api\/?$/,
+				id: "/test/api",
+				pattern: /^\/test\/api\/?$/,
 				params: [],
 				page: null,
-				endpoint: __memo(() => import('../output/server/entries/endpoints/api/_server.js'))
+				endpoint: __memo(() => import('../output/server/entries/endpoints/test/api/_server.js'))
 			},
 			{
-				id: "/api/image",
-				pattern: /^\/api\/image\/?$/,
+				id: "/test/api/image",
+				pattern: /^\/test\/api\/image\/?$/,
 				params: [],
 				page: null,
-				endpoint: __memo(() => import('../output/server/entries/endpoints/api/image/_server.js'))
+				endpoint: __memo(() => import('../output/server/entries/endpoints/test/api/image/_server.js'))
 			},
 			{
-				id: "/api/text",
-				pattern: /^\/api\/text\/?$/,
+				id: "/test/api/text",
+				pattern: /^\/test\/api\/text\/?$/,
 				params: [],
 				page: null,
-				endpoint: __memo(() => import('../output/server/entries/endpoints/api/text/_server.js'))
+				endpoint: __memo(() => import('../output/server/entries/endpoints/test/api/text/_server.js'))
 			}
 		],
-		prerendered_routes: new Set(["/","/api-result","/api-result/__data.json","/elements","/img-post","/img-post/__data.json","/img-post/result","/test-log","/text-post","/text-post/__data.json"]),
+		prerendered_routes: new Set(["/","/mobilenet","/test/api-result","/test/api-result/__data.json","/test/elements","/test/img-post","/test/img-post/result","/test/log","/test/text-post"]),
 		matchers: async () => {
 			
 			return {  };

@@ -10,7 +10,7 @@
     --pt-primary: #DE3412;
     color: var(--dark-gray);
     background-color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
 
 body {

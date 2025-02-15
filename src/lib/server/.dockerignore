@@ -1,0 +1,11 @@
+# Train Models
+/MobileNet/_model
+/MobileNet/static
+/MobileNet/*.ipynb
+
+# Test
+test.*
+test_*.*
+
+# Documents
+*.md

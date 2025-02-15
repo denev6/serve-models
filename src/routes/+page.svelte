@@ -1,12 +1,14 @@
 <script>
   import logo from "$lib/assets/sv.svg";
-  const pages = [
-    { url: "/api", label: "Internal API Server" },
-    { url: "/api-result", label: "GET API when loading the page" },
-    { url: "/test-log", label: "Example using Svelte features" },
-    { url: "/elements", label: "Event-listener using Svelte elements" },
-    { url: "/img-post", label: "External POST API: image" },
-    { url: "/text-post", label: "External POST API: string" },
+  const productPages = [
+    { url: "/mobilenet", label: "Predict image labels with MobileNet" },
+  ];
+  const testPages = [
+    { url: "/test/api-result", label: "GET API when loading the page" },
+    { url: "/test/log", label: "Example using Svelte features" },
+    { url: "/test/elements", label: "Event-listener using Svelte elements" },
+    { url: "/test/img-post", label: "External POST API: image" },
+    { url: "/test/text-post", label: "External POST API: string" },
   ];
 </script>
 
@@ -14,9 +16,17 @@
   <img src={logo} alt="logo" />
   <h1>Welcome to SvelteKit</h1>
 
-  {#each pages as page}
+  <h2>Production Page</h2>
+  {#each productPages as productPage}
     <p>
-      <a href={page.url}>{page.label}</a>
+      <a href={productPage.url}>{productPage.label}</a>
+    </p>
+  {/each}
+
+  <h2>Test Page</h2>
+  {#each testPages as testPage}
+    <p>
+      <a href={testPage.url}>{testPage.label}</a>
     </p>
   {/each}
 </main>
