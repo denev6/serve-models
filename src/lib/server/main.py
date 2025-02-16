@@ -6,9 +6,9 @@ from MobileNet.function import convert_image, predict
 from tools import *
 
 ALLOWED_ORIGINS = [
-    "https://serve-models.vercel.app/",
-    "https://serve-models-git-main-denev6s.vercel.app/",
-    "https://serve-models-s2db1f14g-denev6s.vercel.app/",
+    "https://serve-models.vercel.app",
+    "https://serve-models-git-main-denev6s.vercel.app",
+    "https://serve-models-s2db1f14g-denev6s.vercel.app",
 ]
 
 app = FastAPI()
