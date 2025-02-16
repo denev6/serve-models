@@ -1,6 +1,5 @@
 <script>
   import { API_BASE_URL } from "$lib/constants";
-  console.log(API_BASE_URL);
 
   let file;
   let fileUrl = "";
@@ -81,7 +80,7 @@
     {/each}
   </div>
 {:else}
-  Lables are {labels.join(", ")} (Fashion MNIST).
+  Lables are [ {labels.join(", ")} ] (Fashion MNIST).
 {/if}
 
 <div id="floating-box">
@@ -152,6 +151,7 @@
   button:disabled,
   button[disabled] {
     opacity: 0.5;
+    cursor: default;
   }
   #upload-img {
     width: 240px;

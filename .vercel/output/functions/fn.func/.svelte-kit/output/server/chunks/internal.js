@@ -1413,7 +1413,7 @@ const options = {
     app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\r\n<html lang="en">\r\n  <head>\r\n    <meta charset="utf-8" />\r\n    <link rel="icon" href="' + assets2 + '/favicon.png" />\r\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\r\n    <link rel="stylesheet" href="' + assets2 + '/global.css" />\r\n    ' + head + '\r\n  </head>\r\n  <body data-sveltekit-preload-data="hover">\r\n    <div style="display: contents">' + body + "</div>\r\n  </body>\r\n</html>\r\n",
     error: ({ status, message }) => '<!DOCTYPE html>\r\n<html lang="en">\r\n  <head>\r\n    <meta charset="utf-8" />\r\n    <title>' + message + "</title>\r\n  </head>\r\n  <body>\r\n    <h1>Error page</h1>\r\n    <p>Status: " + status + "</p>\r\n    <p>Message: " + message + "</p>\r\n  </body>\r\n</html>\r\n"
   },
-  version_hash: "f46hdh"
+  version_hash: "wj9xao"
 };
 async function get_hooks() {
   let handle;

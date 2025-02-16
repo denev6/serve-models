@@ -1,11 +1,9 @@
-import { d as slot, c as pop, p as push } from "../../chunks/index2.js";
+import { d as slot } from "../../chunks/index2.js";
 import "../../chunks/client.js";
 function _layout($$payload, $$props) {
-  push();
-  $$payload.out += `<header></header> <main class="svelte-1djit44"><!---->`;
+  $$payload.out += `<header></header> <main class="svelte-1pdw7ds"><!---->`;
   slot($$payload, $$props, "default", {});
-  $$payload.out += `<!----></main> <footer class="svelte-1djit44"><button>Home</button></footer>`;
-  pop();
+  $$payload.out += `<!----></main> <footer class="svelte-1pdw7ds"><a href="/">Home</a> | <a href="https://github.com/denev6/serve-models" target="_blank">Github</a></footer>`;
 }
 export {
   _layout as default

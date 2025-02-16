@@ -10,11 +10,8 @@
 </main>
 
 <footer>
-  <button
-    onclick={() => {
-      goto("/");
-    }}>Home</button
-  >
+  <a href="/">Home</a> |
+  <a href="https://github.com/denev6/serve-models" target="_blank">Github</a>
 </footer>
 
 <style>
@@ -23,7 +20,7 @@
     bottom: 0px;
     width: 100%;
     background-color: var(--light-gray);
-    padding: 4px;
+    padding: 8px;
     margin-top: 32px;
     z-index: 10;
   }

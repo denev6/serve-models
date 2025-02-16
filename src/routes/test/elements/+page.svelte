@@ -26,7 +26,13 @@
   <div>Press Enter to change: {enterSign}</div>
 </div>
 
+<h1>Scroll Down!</h1>
+
 <style>
+  h1 {
+    z-index: 1;
+    float: right;
+  }
   #window-info {
     position: fixed;
     top: 32px;
@@ -37,6 +43,8 @@
     padding: 16px 8px;
     width: 240px;
     z-index: 2;
+    font-weight: bold;
+    line-height: 1.8;
   }
   #scroll-container {
     position: absolute;
@@ -50,6 +58,6 @@
       var(--sv-primary) 0%,
       rgba(255, 255, 255, 1) 100%
     );
-    z-index: 1;
+    z-index: -1;
   }
 </style>

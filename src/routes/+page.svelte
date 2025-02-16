@@ -16,14 +16,14 @@
   <img src={logo} alt="logo" />
   <h1>Welcome to SvelteKit</h1>
 
-  <h2>Production Page</h2>
+  <h2>Production Pages</h2>
   {#each productPages as productPage}
     <p>
       <a href={productPage.url}>{productPage.label}</a>
     </p>
   {/each}
 
-  <h2>Test Page</h2>
+  <h2>Test Pages (for local server)</h2>
   {#each testPages as testPage}
     <p>
       <a href={testPage.url}>{testPage.label}</a>

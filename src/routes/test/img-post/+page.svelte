@@ -64,7 +64,8 @@
   }
 </script>
 
-<h1>POST an Image</h1>
+<h1>This page is used to test the local server.</h1>
+<p>My plan doesn't support Serverless functions😅</p>
 <input type="file" accept="image/*" onchange={handleFileChange} />
 <button onclick={uploadImage} disabled={is_loading}
   >{is_loading ? "Processing..." : "Upload"}</button
