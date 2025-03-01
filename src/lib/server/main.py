@@ -9,6 +9,8 @@ ALLOWED_ORIGINS = [
     "https://serve-models.vercel.app",
     "https://serve-models-git-main-denev6s.vercel.app",
     "https://serve-models-s2db1f14g-denev6s.vercel.app",
+    "http://localhost:8000",
+    "http://192.168.0.3:8000",
 ]
 
 app = FastAPI()

@@ -1,29 +1,33 @@
+import unittest
+
 import requests
 
 
-def test_fashion_mnist(url="http://127.0.0.1", port=None):
-    if port is None:
-        url = f"{url}/fashion-mnist/"
-    else:
-        url = f"{url}:{port}/fashion-mnist/"
-    images = [
-        f"./MobileNet/static/sample/{name}.png" for name in ("Sneaker", "Trouser")
-    ]
+class TestAPI(unittest.TestCase):
+    def test_image_net_api(self):
+        API_URL = "http://127.0.0.1"
+        PORT = "8000"
+        url = f"{API_URL}:{PORT}/fashion-mnist/"
 
-    for img in images:
-        with open(img, "rb") as image_file:
-            # { Field-name: File-name, File-object, File-type }
-            files = {"file": (img, image_file, "image/png")}
-            response = requests.post(url, files=files)
-            resp_json = response.json()
+        dataset = [
+            (f"./MobileNet/static/sample/{label}.png", label)
+            for label in ("Sneaker", "Trouser")
+        ]
 
-        print("Status:", response.status_code)
-        print("Response:", resp_json)
+        for img, label in dataset:
+            with open(img, "rb") as image_file:
+                # { Field-name: File-name, File-object, File-type }
+                files = {"file": (img, image_file, "image/png")}
+                response = requests.post(url, files=files)
+                resp_json = response.json()
 
-        assert response.status_code == 200
+            self.assertEqual(
+                response.status_code, 200, f"Got status code: {response.status_code}"
+            )
+            self.assertEqual(
+                resp_json["label"], label, f"Expected {label}, got {resp_json['label']}"
+            )
 
 
 if __name__ == "__main__":
-    API_URL = "http://127.0.0.1"
-    PORT = "8000"
-    test_fashion_mnist(API_URL, PORT)
+    unittest.main()

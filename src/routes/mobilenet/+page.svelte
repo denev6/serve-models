@@ -109,7 +109,7 @@
     padding: 16px;
     margin: 8px 0px;
     color: white;
-    background-color: var(--sv-primary);
+    background-color: var(--dark-gray);
     border-radius: 4px;
     font-weight: bold;
   }
