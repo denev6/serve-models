@@ -1,14 +1,21 @@
+import os
+import sys
+
+current_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+sys.path.append(current_dir)
+
 from fastapi import FastAPI, Request, File, UploadFile, HTTPException
 from fastapi.responses import Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from MobileNet.function import convert_image, predict
+from Mistral.function import generate_answer, trim_answer
 from tools import *
 
 ALLOWED_ORIGINS = [
-    "https://serve-models.vercel.app",
-    "https://serve-models-git-main-denev6s.vercel.app",
-    "https://serve-models-s2db1f14g-denev6s.vercel.app",
+    #"https://serve-models.vercel.app",
+    #"https://serve-models-git-main-denev6s.vercel.app",
+    #"https://serve-models-s2db1f14g-denev6s.vercel.app",
     "http://localhost:8000",
     "http://192.168.0.3:8000",
 ]
@@ -23,9 +30,22 @@ app.add_middleware(
 )
 
 
+### Mistral(LLM) ###
+@app.post("/mistral")
+async def ask_llm(request: Request):
+    """Return answer from Mistral LLM
+
+    :param request (Request): JSON contains { text }
+    :returns: { text }
+    """
+    data = await request.json()
+    prompt = data.get("text", "")
+    answer = generate_answer(prompt, max_len=300)
+    answer = trim_answer(answer, max_lines=5)
+    return {"text": answer.strip()}
+
+
 ### Fashion MNIST ###
-
-
 @app.post("/fashion-mnist")
 async def predict_fashion(file: UploadFile = File()):
     """Predict image using Mobile-net trained by Fashion-MNIST
@@ -62,6 +82,7 @@ async def receive_text(request: Request):
     :param file (Request): JSON contains { text }
     :returns: { text }
     """
+
     data = await request.json()
     text = data.get("text", "")
     return {"text": text.strip()}

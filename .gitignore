@@ -19,5 +19,13 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# Server
+# Local
+.vscode
+.idea
 __pycache__
+.pytest_cache
+desktop.ini
+/run.bat
+
+# Model weights
+src/lib/server/Mistral/mistral/*

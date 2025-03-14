@@ -2,6 +2,7 @@
   import logo from "$lib/assets/sv.svg";
   const productPages = [
     { url: "/mobilenet", label: "Predict image labels with MobileNet" },
+    { url: "/mistral", label: "Ask Mistral (LLM)" },
   ];
   const testPages = [
     { url: "/test/api-result", label: "GET API when loading the page" },

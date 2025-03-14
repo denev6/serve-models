@@ -14,7 +14,8 @@ RUN pip install \
     uvicorn==0.34.0 \
     python-multipart==0.0.9 \
     numpy==1.26.3 \
-    pillow==10.2.0
+    pillow==10.2.0 \
+    transformers==4.49.0
 # Torch without CUDA (lightweight)
 RUN pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
 RUN pip install torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cpu

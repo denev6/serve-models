@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import torch
 import torch.nn as nn
@@ -21,7 +22,10 @@ LABELS = {
 
 # MY_DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MY_DEVICE = torch.device("cpu")
-MODEL_PATH = "MobileNet/model.pth"
+
+model_path = "MobileNet/model.pth"
+parent_dir = Path(__file__).resolve().parent
+MODEL_PATH = parent_dir / '..' / model_path
 
 transform = transforms.Compose(
     [

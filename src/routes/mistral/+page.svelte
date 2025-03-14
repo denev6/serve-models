@@ -1,17 +1,22 @@
 <script>
   import arrowIcon from "$lib/assets/icons/arrow-up.svg";
-  import { TEST_API_URL } from "$lib/constants";
+  import { API_BASE_URL } from "$lib/constants";
+  import SentenceBox from "./SentenceBox.svelte";
 
   let text = "";
   let responseMessage = "";
   let textRequest = "";
   let is_loading = false;
+  let conversations = [];
 
-  async function submitText() {
+  async function askLLM() {
+    is_loading = true; // prevent duplicate inputs
+
     if (!text.trim()) {
       alert("Please enter some text!");
       return;
     }
+    conversations = [...conversations, ["user", text]];
 
     // JSON Request
     textRequest = {
@@ -20,44 +25,59 @@
       body: JSON.stringify({ text: text }),
     };
 
-    is_loading = true;
+    conversations = [...conversations, ["loading", "Loading..."]];
+    requestAnimationFrame(() => {
+      scrollToBottom();
+    });
+    document.getElementById("input-area").value = "";
+
     // Fetch response from API
-    const response = await fetch(`${TEST_API_URL}/text`, textRequest);
+    const response = await fetch(`${API_BASE_URL}/mistral`, textRequest);
 
     if (response.ok) {
-      responseMessage = await response.text();
+      responseMessage = await response.json();
+      responseMessage = responseMessage.text;
     } else {
       responseMessage = "Error: Unable to send request.";
     }
+    conversations = [...conversations.slice(0, -1), ["llm", responseMessage]];
     is_loading = false;
   }
 
   function handleKeydown(event) {
     if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      submitText();
+      if (!is_loading) {
+        event.preventDefault();
+        askLLM();
+      }
     }
+  }
+
+  function scrollToBottom() {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
   }
 </script>
 
 <svelte:document onkeydown={handleKeydown} />
 
-<h1>This page is used to test the local server.</h1>
-<!--<p>My plan doesn't support Serverless functions😅</p>-->
+<h1>Ask LLM</h1>
 <div id="floating-box">
-  <div id="info">Press SHIFT + ENTER to insert a newline</div>
   <div id="input-container">
-    <textarea bind:value={text} placeholder="Enter text here..."></textarea>
-    <button onclick={submitText} onkeydown={handleKeydown} disabled={is_loading}
+    <textarea id="input-area" bind:value={text} placeholder="Enter text here..."
+    ></textarea>
+    <button onclick={askLLM} onkeydown={handleKeydown} disabled={is_loading}
       ><img src={arrowIcon} alt="submit" /></button
     >
   </div>
+  <div id="info">Press SHIFT + ENTER to insert a newline</div>
 </div>
-<div>
-  {#if responseMessage}
-    <p class="response">Request: {JSON.stringify(textRequest)}</p>
-    <p class="response">Response: {responseMessage}</p>
-  {/if}
+<div id="conversation-container">
+  {#each conversations as conversation, i}
+    <SentenceBox speaker={conversation[0]} sentence={conversation[1]} />
+  {/each}
 </div>
 
 <style>
@@ -70,7 +90,7 @@
     text-align: center;
   }
   #info {
-    margin-bottom: 8px;
+    margin: 8px 0px;
     color: var(--mid-gray);
     font-size: 14px;
   }
@@ -96,7 +116,6 @@
     outline: none;
     font-family: inherit;
   }
-
   button {
     display: flex;
     justify-content: center;
@@ -112,8 +131,11 @@
     align-self: flex-end;
     white-space: nowrap;
   }
-
-  .response {
-    margin-top: 24px;
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  #conversation-container {
+    margin-bottom: 160px;
   }
 </style>
