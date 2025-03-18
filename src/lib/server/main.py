@@ -1,5 +1,6 @@
 import os
 import sys
+import warnings
 
 current_dir = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 sys.path.append(current_dir)
@@ -13,9 +14,9 @@ from Mistral.function import generate_answer, trim_answer
 from tools import *
 
 ALLOWED_ORIGINS = [
-    #"https://serve-models.vercel.app",
-    #"https://serve-models-git-main-denev6s.vercel.app",
-    #"https://serve-models-s2db1f14g-denev6s.vercel.app",
+    # "https://serve-models.vercel.app",
+    # "https://serve-models-git-main-denev6s.vercel.app",
+    # "https://serve-models-s2db1f14g-denev6s.vercel.app",
     "http://localhost:8000",
     "http://192.168.0.3:8000",
 ]
@@ -23,15 +24,24 @@ ALLOWED_ORIGINS = [
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,
+    allow_origins=["*"],  # ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# For ML models
+warnings.filterwarnings("ignore")
+
+
+# To see if the server is running.
+@app.get("/")
+async def hello():
+    return {"text": "안녕하세요!"}
+
 
 ### Mistral(LLM) ###
-@app.post("/mistral")
+@app.post("/models/mistral")
 async def ask_llm(request: Request):
     """Return answer from Mistral LLM
 
@@ -40,13 +50,15 @@ async def ask_llm(request: Request):
     """
     data = await request.json()
     prompt = data.get("text", "")
-    answer = generate_answer(prompt, max_len=300)
-    answer = trim_answer(answer, max_lines=5)
+
+    answer = generate_answer(prompt, max_len=200)
+    answer = trim_answer(answer, max_lines=3)
+
     return {"text": answer.strip()}
 
 
 ### Fashion MNIST ###
-@app.post("/fashion-mnist")
+@app.post("/models/fashion-mnist")
 async def predict_fashion(file: UploadFile = File()):
     """Predict image using Mobile-net trained by Fashion-MNIST
 
@@ -58,6 +70,7 @@ async def predict_fashion(file: UploadFile = File()):
 
     img_tensor = convert_image(file.file)
     label, probs = predict(img_tensor)
+
     return {"label": label, "probs": probs}
 
 

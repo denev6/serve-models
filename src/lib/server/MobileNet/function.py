@@ -25,7 +25,7 @@ MY_DEVICE = torch.device("cpu")
 
 model_path = "MobileNet/model.pth"
 parent_dir = Path(__file__).resolve().parent
-MODEL_PATH = parent_dir / '..' / model_path
+MODEL_PATH = parent_dir / ".." / model_path
 
 transform = transforms.Compose(
     [

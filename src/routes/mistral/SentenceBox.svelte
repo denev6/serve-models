@@ -19,7 +19,7 @@
     font-weight: bold;
   }
   .loading {
-    animation: fadeAnimation 2s infinite alternate;
+    animation: fadeAnimation 1.5s infinite alternate;
   }
 
   @keyframes fadeAnimation {

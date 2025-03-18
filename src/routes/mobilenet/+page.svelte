@@ -104,6 +104,7 @@
   #label-container {
     min-width: fit-content;
     margin-top: 48px;
+    margin-bottom: 120px;
   }
   .label-box {
     padding: 16px;
@@ -151,7 +152,7 @@
   button:disabled,
   button[disabled] {
     opacity: 0.5;
-    cursor: default;
+    cursor: disabled;
   }
   #upload-img {
     width: 240px;

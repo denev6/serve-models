@@ -43,7 +43,7 @@
 <svelte:document onkeydown={handleKeydown} />
 
 <h1>This page is used to test the local server.</h1>
-<!--<p>My plan doesn't support Serverless functions😅</p>-->
+<p>My plan doesn't support Serverless functions😅</p>
 <div id="floating-box">
   <div id="info">Press SHIFT + ENTER to insert a newline</div>
   <div id="input-container">

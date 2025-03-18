@@ -17,6 +17,7 @@
       return;
     }
     conversations = [...conversations, ["user", text]];
+    document.getElementById("input-area").value = "";
 
     // JSON Request
     textRequest = {
@@ -29,7 +30,6 @@
     requestAnimationFrame(() => {
       scrollToBottom();
     });
-    document.getElementById("input-area").value = "";
 
     // Fetch response from API
     const response = await fetch(`${API_BASE_URL}/mistral`, textRequest);

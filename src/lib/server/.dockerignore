@@ -1,7 +1,8 @@
-# Train Models
+# Trained Models
 /MobileNet/_model
 /MobileNet/static
 /MobileNet/*.ipynb
+/Mistral/*.ipynb
 
 # Test
 test.*
@@ -9,3 +10,7 @@ test_*.*
 
 # Documents
 *.md
+
+# Local
+__pycache__
+.pytest_cache

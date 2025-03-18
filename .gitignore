@@ -25,7 +25,6 @@ vite.config.ts.timestamp-*
 __pycache__
 .pytest_cache
 desktop.ini
-/run.bat
 
 # Model weights
 src/lib/server/Mistral/mistral/*

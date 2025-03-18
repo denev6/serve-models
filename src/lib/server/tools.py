@@ -30,3 +30,9 @@ async def is_valid_image(file: UploadFile):
             detail=f"이미지 확장자는 {allowed_ext_str}만 가능합니다.",
         )
     return file
+
+
+def trim_log(string: str, max_len: int = 10):
+    if len(string) <= max_len:
+        return string
+    return string[:max_len]

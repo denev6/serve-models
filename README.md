@@ -2,9 +2,17 @@
 
 ![overview](overview.png)
 
+[run.bat](run.bat)
+
 ```bash
+@echo off
+:: Activate conda environment
 call conda activate MY_ENV
-start uvicorn src.lib.server.main:app --reload
+
+:: Start FastAPI server in the background
+start uvicorn src.lib.server.main:app --host=0.0.0.0 --port=8001 --reload
+
+:: Start Svelte server
 npm run dev
 ```
 
